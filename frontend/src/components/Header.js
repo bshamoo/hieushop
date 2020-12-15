@@ -1,4 +1,5 @@
 import React from 'react';
+import { LinkContainer } from 'react-router-bootstrap';
 import { ReactComponent as Logo } from './logo.svg';
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 
@@ -11,17 +12,23 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Row className="text-center">
                                 <Col xs={12} md={6}>
-                                    <Nav.Link href="/"><i class="fab fa-instagram"></i></Nav.Link>
+                                    <LinkContainer to="/">
+                                        <Nav.Link><i class="fab fa-instagram"></i></Nav.Link>
+                                    </LinkContainer>
                                 </Col>
                                 <Col xs={12} md={6}>
-                                    <Nav.Link href="/"><i class="fab fa-twitter"></i></Nav.Link>
+                                    <LinkContainer to="/">
+                                        <Nav.Link><i class="fab fa-twitter"></i></Nav.Link>
+                                    </LinkContainer>
                                 </Col>
                             </Row>
                         </Nav>
                         <Nav className="ml-auto">
                             <Row className="text-center ">
                                 <Col>
-                                    <Nav.Link href="/shop">shop</Nav.Link>
+                                    <LinkContainer to="/shop">
+                                        <Nav.Link>shop</Nav.Link>
+                                    </LinkContainer>
                                 </Col>
                             </Row>
                         </Nav>
@@ -37,10 +44,14 @@ const Header = () => {
                     <Nav className="ml-auto order-0 order-md-1 order-lg-1">
                         <Row className="text-center">
                             <Col>
-                                <Nav.Link href="/login"><i class="far fa-user-circle"></i></Nav.Link>
+                                <LinkContainer to="/login">
+                                    <Nav.Link><i class="far fa-user-circle"></i></Nav.Link>
+                                </LinkContainer>
                             </Col>
                             <Col>
-                                <Nav.Link href="/cart"><i class="fas fa-shopping-bag"></i></Nav.Link>
+                                <LinkContainer to="/cart">
+                                    <Nav.Link><i class="fas fa-shopping-bag"></i></Nav.Link>
+                                </LinkContainer>
                             </Col>
                         </Row>
                     </Nav>
@@ -48,7 +59,9 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Row className="text-center">
                                 <Col>
-                                    <Nav.Link href="/book">book</Nav.Link>
+                                <LinkContainer to="/book">
+                                    <Nav.Link>book</Nav.Link>
+                                </LinkContainer>
                                 </Col>
                             </Row>
                         </Nav>
