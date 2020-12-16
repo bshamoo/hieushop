@@ -10,15 +10,15 @@ const Product = ({ product }) => {
             </Link>
             <Card.Body className='py-1 px-1'>
                 <Link to={`/product/${product._id}`}>
-                    <Card.Title className='mb-1' as='h5'>
+                    <Card.Title className='mb-0' as='h6'>
                         <strong>{product.name}</strong>
                     </Card.Title>
                 </Link>
-                <Card.Text as='h6'>
-                    debut collection winter 2020
+                <Card.Text as='h6' className="font-weight-normal">
+                    vegas collection winter 2020
                 </Card.Text>
                 <Card.Text as='h7'>
-                    ${product.price}
+                    {product.countInStock > 0 ? `$${product.price}` : 'Sold Out'}
                 </Card.Text>
             </Card.Body>
         </Card>

@@ -17,6 +17,7 @@ main {
   background: rgb(0, 0, 0, 0.9);
   font-size: 1.21875rem;
   font-weight: 700;
+  letter-spacing: 0.1rem;
 }
 .btn-cart:hover {
   color: rgb(0, 0, 0, 0.9);
@@ -45,4 +46,38 @@ main {
 .btn-cart:not(:disabled):not(.disabled):active:focus,
 .show > .btn-cart.dropdown-toggle:focus {
   box-shadow: none;
+}
+
+.btn-news {
+  color: #222;
+  border-color: #222;
+  font-size: 0.8125rem;
+  font-weight: 400;
+  border: 1.5px solid;
+}
+.btn-news:hover {
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
+.btn-news.focus,
+.btn-news:focus {
+  box-shadow: 0 0 0 0.2rem rgba(34, 34, 34, 0.5);
+}
+.btn-news.disabled,
+.btn-news:disabled {
+  color: #222;
+  background-color: transparent;
+}
+.btn-news:not(:disabled):not(.disabled).active,
+.btn-news:not(:disabled):not(.disabled):active,
+.show > .btn-news.dropdown-toggle {
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
+.btn-news:not(:disabled):not(.disabled).active:focus,
+.btn-news:not(:disabled):not(.disabled):active:focus,
+.show > .btn-news.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem rgba(34, 34, 34, 0.5);
 }

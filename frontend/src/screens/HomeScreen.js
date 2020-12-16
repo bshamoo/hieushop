@@ -8,7 +8,7 @@ const HomeScreen = () => {
         <>
             <Row className="text-center">
                 <Col className="text-center">
-                    <h3 className="collection-name font-weight-bold"> debut collection <span className="collection-date">winter 2021</span></h3>
+                    <h3 className="collection-name font-weight-bold">vegas collection <span className="collection-date">winter 2021</span></h3>
                 </Col>
             </Row>
             <Row>
