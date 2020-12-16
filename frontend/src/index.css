@@ -1,3 +1,48 @@
+:root {
+  --blue: #138bde;
+  --darkblue: #0067ba;
+}
 main {
   min-height: 80vh;
+}
+.collection-name {
+  color: #138bde;
+}
+.collection-date {
+  color: #0067ba;
+  font-weight: 500;
+}
+.btn-cart {
+  color: #0c83e2;
+  background: rgb(0, 0, 0, 0.9);
+  font-size: 1.21875rem;
+  font-weight: 700;
+}
+.btn-cart:hover {
+  color: rgb(0, 0, 0, 0.9);
+  background: #2196f3 linear-gradient(180deg, #42a6f5, #2196f3) repeat-x;
+}
+.btn-cart.focus,
+.btn-cart:focus {
+  color: rgb(0, 0, 0, 0.9);
+  background: #0c83e2 linear-gradient(180deg, #3196e6, #0c83e2) repeat-x;
+  box-shadow: none;
+}
+.btn-cart.disabled,
+.btn-cart:disabled {
+  color: #fff;
+  background-color: #2196f3;
+  background-image: none;
+}
+.btn-cart:not(:disabled):not(.disabled).active,
+.btn-cart:not(:disabled):not(.disabled):active,
+.show > .btn-cart.dropdown-toggle {
+  color: #fff;
+  background-color: #0c7cd5;
+  background-image: none;
+}
+.btn-cart:not(:disabled):not(.disabled).active:focus,
+.btn-cart:not(:disabled):not(.disabled):active:focus,
+.show > .btn-cart.dropdown-toggle:focus {
+  box-shadow: none;
 }
