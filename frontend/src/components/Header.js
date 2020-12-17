@@ -21,7 +21,7 @@ const Header = () => {
                                 <Col xs={12} md={6}>
                                     <LinkContainer to="/">
                                         <Nav.Link className="social">
-                                            <h2><i class="fab fa-youtube"></i></h2>
+                                            <h2><i class="fab fa-tiktok"></i></h2>
                                         </Nav.Link>
                                     </LinkContainer>
                                 </Col>

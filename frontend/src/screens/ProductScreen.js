@@ -53,13 +53,13 @@ const ProductScreen = ({ match }) => {
                                     Status:
                                 </Col>
                                 <Col>
-                                    <strong>{product.countInStock > 0 ? 'In Stock' : 'Out of Stock'}</strong>
+                                    <strong>{product.countInStock === 0 ? 'Out of Stock' : 'In Stock'}</strong>
                                 </Col>
                             </Row>
                         </ListGroupItem>
                         <ListGroupItem>
                             <Button className="btn-block btn-cart shadow-none" type="button" disabled={product.countInStock === 0}>
-                                {product.countInStock > 0 ? 'Add to Cart' : 'Sold Out'}
+                                {product.countInStock === 0 ? 'Sold Out' : 'Add to Cart'}
                             </Button>
                         </ListGroupItem>
                     </ListGroup>

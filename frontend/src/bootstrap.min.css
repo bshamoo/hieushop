@@ -2936,7 +2936,7 @@ fieldset:disabled a.btn {
 }
 .btn-outline-dark {
   color: #222;
-  
+
   border-color: #222;
 }
 .btn-outline-dark:hover {
@@ -4112,6 +4112,9 @@ input[type="submit"].btn-block {
   padding-right: 0;
   padding-left: 0;
 }
+.navbar-nav .nav-link.disabled {
+  color: white;
+}
 .navbar-nav .dropdown-menu {
   position: static;
   float: none;
@@ -4140,6 +4143,12 @@ input[type="submit"].btn-block {
 .navbar-toggler:focus,
 .navbar-toggler:hover {
   text-decoration: none;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none;
+  box-shadow: none;
 }
 .navbar-toggler-icon {
   display: inline-block;
