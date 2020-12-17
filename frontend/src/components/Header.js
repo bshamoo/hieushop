@@ -1,9 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap';
 import { ReactComponent as Logo } from './logo.svg';
 import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 
 const Header = () => {
+
+    const cart = useSelector(state => state.cart)
+    const { cartItems } = cart
+
     return (
         <header>
             <Navbar bg="light" variant='light' expand="md" fixed="top" className="py-0" collapseOnSelect>
@@ -59,7 +64,12 @@ const Header = () => {
                             <Col>
                                 <LinkContainer to="/cart">
                                     <Nav.Link className="user">
-                                        <h2><i class="fas fa-shopping-bag"></i></h2>
+                                        <h2>
+                                            <i class="fas fa-shopping-bag"></i>
+                                            <h6 className="flex">
+                                                {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                                            </h6>
+                                        </h2>
                                     </Nav.Link>
                                 </LinkContainer>
                             </Col>

@@ -69,7 +69,7 @@ const ProductScreen = ({ history, match }) => {
                                 <ListGroup.Item>
                                     <Row>
                                         <Col>
-                                            Size
+                                            Size:
                                         </Col>
                                         <Col>
                                             <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>

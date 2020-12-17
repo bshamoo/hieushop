@@ -92,7 +92,7 @@ const CartScreen = ({match, location, history}) => {
                                 <h6>${cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)}</h6>
                             </ListGroup.Item>
                             <ListGroup.Item>
-                                <Button type='button' className='btn-block btn-checkout' disable={cartItems.length === 0} onClick={checkoutHandler}>
+                                <Button type='button' className='btn-block btn-checkout' disabled={cartItems.length === 0} onClick={checkoutHandler}>
                                     Checkout
                                 </Button>
                             </ListGroup.Item>

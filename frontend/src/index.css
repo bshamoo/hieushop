@@ -67,7 +67,7 @@ main {
 .btn-checkout.disabled,
 .btn-checkout:disabled {
   color: #fff;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.9);
   background-image: none;
 }
 .btn-checkout:not(:disabled):not(.disabled).active,
