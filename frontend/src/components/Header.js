@@ -33,7 +33,7 @@ const Header = () => {
                             </Row>
                         </Nav>
                         <Nav className="ml-auto">
-                            <Row className="text-center ">
+                            <Row className="text-center">
                                 <Col>
                                     <LinkContainer to="/shop">
                                         <Nav.Link >
@@ -53,7 +53,7 @@ const Header = () => {
                         </Row> 
                     </Navbar.Brand>
                     <Nav className="ml-auto order-0 order-md-1 order-lg-1">
-                        <Row className="text-center">
+                        <Row className="text-center pt-3">
                             <Col>
                                 <LinkContainer to="/login">
                                     <Nav.Link className="user">
@@ -79,11 +79,11 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Row className="text-center">
                                 <Col>
-                                <LinkContainer to="/book">
-                                    <Nav.Link>
-                                        <h2 className="font-weight-bolder">book</h2>
-                                    </Nav.Link>
-                                </LinkContainer>
+                                    <LinkContainer to="/book">
+                                        <Nav.Link>
+                                            <h2 className="font-weight-bolder">book</h2>
+                                        </Nav.Link>
+                                    </LinkContainer>
                                 </Col>
                             </Row>
                         </Nav>

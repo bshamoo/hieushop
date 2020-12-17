@@ -8,6 +8,7 @@ import { listProductDetails } from '../actions/productActions'
 
 const ProductScreen = ({ history, match }) => {
     const [qty, setQty] = useState(1)
+    const [sz, setSize] = useState('')
     const dispatch = useDispatch()
 
     const productDetails = useSelector(state => state.productDetails)
@@ -18,7 +19,20 @@ const ProductScreen = ({ history, match }) => {
     }, [dispatch, match])
 
     const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}?qty=${qty}`)
+        history.push(`/cart/${match.params.id}?qty=${qty}?sz=${sz}`)
+    }
+
+    const setSM = () => {
+        setSize('SMALL')
+        setQty(1)
+    }
+    const setMD = () => {
+        setSize('MEDIUM')
+        setQty(1)  
+    }
+    const setLG = () => {
+        setSize('LARGE')
+        setQty(1)  
     }
 
     return (
@@ -33,7 +47,7 @@ const ProductScreen = ({ history, match }) => {
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <Row>
                     <Col md={6}>
-                        <Image src={product.image} alt={product.name} fluid/>
+                        <Image src={product.image} alt={product.name} fluid rounded/>
                     </Col>
                     <Col md={6}>
                         <ListGroup variant='flush'>
@@ -68,23 +82,35 @@ const ProductScreen = ({ history, match }) => {
                             {product.countInStock > 0 && (
                                 <ListGroup.Item>
                                     <Row>
-                                        <Col>
+                                        <Col md={6} className="pb-2">
                                             Size:
                                         </Col>
-                                        <Col>
-                                            <Form.Control as='select' value={qty} onChange={(e) => setQty(e.target.value)}>
-                                                {[...Array(product.countInStock).keys()].map(x => (
-                                                    <option key={x + 1} value={x + 1}>
-                                                        {x + 1}
-                                                    </option>
-                                                ))}
-                                            </Form.Control>
+                                        <Col xs={3} sm={3} md={2} className="text-left">
+                                            <Button type='button' variant='light' className="px-4" 
+                                            onClick={setSM} 
+                                            disabled={product.size.small === 0}>
+                                                <strong>S</strong>
+                                            </Button>
+                                        </Col>
+                                        <Col xs={3} sm={3} md={2} className="text-center">
+                                            <Button type='button' variant='light' className="px-4" 
+                                            onClick={setMD} 
+                                            disabled={product.size.medium === 0}>
+                                                <strong>M</strong>
+                                            </Button>
+                                        </Col>
+                                        <Col xs={3} sm={3} md={2} className="text-right">
+                                            <Button type='button' variant='light' className="px-4"
+                                            onClick={setLG}  
+                                            disabled={product.size.large === 0}>
+                                                <strong>L</strong>
+                                            </Button>
                                         </Col>
                                     </Row>
                                 </ListGroup.Item>
                             )}
                             <ListGroupItem>
-                                <Button onClick={addToCartHandler} className="btn-block btn-cart shadow-none" type="button" disabled={product.countInStock === 0}>
+                                <Button onClick={addToCartHandler} className="btn-block btn-cart shadow-none" type="button" disabled={product.countInStock === 0 || sz === ''}>
                                     {product.countInStock === 0 ? 'Sold Out' : 'Add to Cart'}
                                 </Button>
                             </ListGroupItem>

@@ -2668,9 +2668,10 @@ fieldset:disabled a.btn {
 .btn-light.disabled,
 .btn-light:disabled {
   color: #212121;
-  background-color: #fff;
+  background-color: rgb(189, 189, 189);
   border-color: #fff;
   background-image: none;
+  box-shadow: none;
 }
 .btn-light:not(:disabled):not(.disabled).active,
 .btn-light:not(:disabled):not(.disabled):active,
