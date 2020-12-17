@@ -47,7 +47,41 @@ main {
 .show > .btn-cart.dropdown-toggle:focus {
   box-shadow: none;
 }
-
+.btn-checkout {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  font-size: 1.015625rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+}
+.btn-checkout:hover {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+}
+.btn-checkout.focus,
+.btn-checkout:focus {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  box-shadow: none;
+}
+.btn-checkout.disabled,
+.btn-checkout:disabled {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.75);
+  background-image: none;
+}
+.btn-checkout:not(:disabled):not(.disabled).active,
+.btn-checkout:not(:disabled):not(.disabled):active,
+.show > .btn-checkout.dropdown-toggle {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  background-image: none;
+}
+.btn-checkout:not(:disabled):not(.disabled).active:focus,
+.btn-checkout:not(:disabled):not(.disabled):active:focus,
+.show > .btn-checkout.dropdown-toggle:focus {
+  box-shadow: none;
+}
 .btn-news {
   color: #222;
   border-color: #222;
