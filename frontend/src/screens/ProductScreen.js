@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, Image, ListGroup, Button, ListGroupItem, Form} from 'react-bootstrap';
+import { Row, Col, Image, ListGroup, Button, ListGroupItem } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions'
@@ -23,15 +23,15 @@ const ProductScreen = ({ history, match }) => {
     }
 
     const setSM = () => {
-        setSize('SMALL')
+        setSize('small')
         setQty(1)
     }
     const setMD = () => {
-        setSize('MEDIUM')
+        setSize('medium')
         setQty(1)  
     }
     const setLG = () => {
-        setSize('LARGE')
+        setSize('large')
         setQty(1)  
     }
 
@@ -55,6 +55,9 @@ const ProductScreen = ({ history, match }) => {
                                 <h3>
                                     <strong>{product.name}</strong>
                                 </h3>
+                                <h6>
+                                    {product.brand}
+                                </h6>
                             </ListGroupItem>
                             <ListGroupItem>
                                 {product.description}
@@ -86,22 +89,31 @@ const ProductScreen = ({ history, match }) => {
                                             Size:
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-left">
-                                            <Button type='button' variant='light' className="px-4" 
-                                            onClick={setSM} 
+                                            <Button type='button' 
+                                            className={sz === 'small' 
+                                                        ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
+                                                        : 'btn-sizes px-4 px-md-3 px-lg-4'}
+                                            onClick={setSM}
                                             disabled={product.size.small === 0}>
                                                 <strong>S</strong>
                                             </Button>
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-center">
-                                            <Button type='button' variant='light' className="px-4" 
-                                            onClick={setMD} 
+                                            <Button type='button' 
+                                            className={sz === 'medium' 
+                                                        ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
+                                                        : 'btn-sizes px-4 px-md-3 px-lg-4'}
+                                            onClick={setMD}
                                             disabled={product.size.medium === 0}>
                                                 <strong>M</strong>
                                             </Button>
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-right">
-                                            <Button type='button' variant='light' className="px-4"
-                                            onClick={setLG}  
+                                            <Button type='button' 
+                                            className={ sz === 'large' 
+                                                        ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
+                                                        : 'btn-sizes px-4 px-md-3 px-lg-4'}
+                                            onClick={setLG}
                                             disabled={product.size.large === 0}>
                                                 <strong>L</strong>
                                             </Button>

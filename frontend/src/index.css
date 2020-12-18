@@ -115,3 +115,51 @@ main {
 .show > .btn-news.dropdown-toggle:focus {
   box-shadow: 0 0 0 0.2rem rgba(34, 34, 34, 0.5);
 }
+.btn-sizes {
+  color: rgb(0, 0, 0, 0.9);
+  background: rgb(255, 255, 255);
+  border: 2px solid transparent;
+}
+.btn-sizes:hover {
+  color: rgb(0, 0, 0, 0.9);
+  background: rgb(255, 255, 255);
+  border: 2px solid black;
+  outline-style: black;
+  box-shadow: none;
+}
+.btn-sizes.focus,
+.btn-sizes:focus {
+  color: rgb(0, 0, 0, 0.9);
+  background: rgb(255, 255, 255);
+  border: 2px solid black;
+  outline-style: black;
+  box-shadow: none;
+}
+.btn-sizes.active,
+.btn-sizes:active {
+  color: rgb(0, 0, 0, 0.9);
+  background: rgb(255, 255, 255);
+  border: 2px solid black;
+  outline-style: black;
+  box-shadow: none;
+}
+.btn-sizes.disabled,
+.btn-sizes:disabled {
+  color: rgb(0, 0, 0, 0.8);
+  background: rgb(255, 255, 255);
+  box-shadow: none;
+  background-image: none;
+  border: none;
+}
+.btn-sizes:not(:disabled):not(.disabled).active,
+.btn-sizes:not(:disabled):not(.disabled):active,
+.show > .btn-sizes.dropdown-toggle {
+  color: rgb(0, 0, 0, 0.9);
+  background: rgb(255, 255, 255);
+  background-image: none;
+}
+.btn-sizes:not(:disabled):not(.disabled).active:focus,
+.btn-sizes:not(:disabled):not(.disabled):active:focus,
+.show > .btn-sizes.dropdown-toggle:focus {
+  box-shadow: none;
+}

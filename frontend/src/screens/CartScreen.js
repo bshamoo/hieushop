@@ -4,12 +4,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import CounterInput from "react-counter-input";
 
 const CartScreen = ({match, location, history}) => {
     const productId = match.params.id
 
-    const qty = 1
-    const sz = location.search ? String(location.search.split('=')[2]) : 'SMALL'
+    const qty = location.search ? Number(location.search.split('=')[1].split('?')[0]) : 1
+    const sz = location.search ? String(location.search.split('=')[2]) : 'small'
 
     const dispatch = useDispatch()
 
@@ -61,25 +62,29 @@ const CartScreen = ({match, location, history}) => {
                                         ${item.price}
                                     </Col>
                                     <Col md={1}>
-                                        {item.sz}
+                                        {item.sz.toUpperCase()}
                                     </Col>
                                     <Col md={2}>
-                                        <Form.Control 
-                                            as='select' 
-                                            value={item.qty} 
-                                            onChange={(e) => dispatch(addToCart(item.product,
-                                            Number(e.target.value), sz))}
-                                            >
+                                    {/*
+                                    <Form.Control 
+                                        as='select' 
+                                        value={item.qty} 
+                                        onChange={(e) => dispatch(addToCart(item.product,
+                                        Number(e.target.value), item.sz))}
+                                        >
                                             {[...Array(item.countInStock).keys()].map(x => (
                                                 <option key={x + 1} value={x + 1}>
                                                     {x + 1}
                                                 </option>
                                             ))}
-                                        </Form.Control>
+                                    </Form.Control>
+                                    */}
+                                        <CounterInput btnStyle={{color: 'black'}} inputStyle={{background: 'rgba(201, 201, 201, 0.2)'}}
+                                        count={1} min={1} max={item.countInStock} onCountChange={(count) => dispatch(addToCart(item.product, Number(count), item.sz))} />
                                     </Col>
                                     <Col md={2}>
                                         <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product)}>
-                                            <i class="fas fa-trash-alt"></i>
+                                            <i class="fas fa-times"></i>
                                         </Button>
                                     </Col>
                                 </Row>
