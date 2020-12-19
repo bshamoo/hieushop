@@ -7,7 +7,6 @@ import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions'
 
 const ProductScreen = ({ history, match }) => {
-    const [qty, setQty] = useState(0)
     const [sz, setSize] = useState('')
     const dispatch = useDispatch()
 
@@ -19,20 +18,17 @@ const ProductScreen = ({ history, match }) => {
     }, [dispatch, match])
 
     const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}?qty=${qty}?sz=${sz}`)
+        history.push(`/cart/${match.params.id}?sz=${sz}`)
     }
 
     const setSM = () => {
         setSize('small')
-        setQty(1)
     }
     const setMD = () => {
         setSize('medium')
-        setQty(1)  
     }
     const setLG = () => {
         setSize('large')
-        setQty(1)  
     }
 
     return (

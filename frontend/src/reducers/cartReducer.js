@@ -10,10 +10,10 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
             if(item.sizeInStock > 0) {
 
                 if(existItem) {
-                return {
-                    ...state,
-                    cartItems: state.cartItems.map(x => x.product === existItem.product && x.sz === existItem.sz ? item : x)
-                }
+                    return {
+                        ...state,
+                        cartItems: state.cartItems.map(x => x.product === existItem.product && x.sz === existItem.sz ? item : x)
+                    }
                 } else {
                     return {
                         ...state,

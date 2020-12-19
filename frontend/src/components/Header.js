@@ -48,7 +48,7 @@ const Header = () => {
                     <Navbar.Brand className="m-auto order-0 order-md-0 order-lg-0">
                         <Row>
                             <Col>
-                                <Logo className="logo" height={100} width={200}/>  
+                                <Logo className="logo" height={100} width={190}/>  
                             </Col>
                         </Row> 
                     </Navbar.Brand>

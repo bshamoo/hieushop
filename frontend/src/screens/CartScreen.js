@@ -8,8 +8,8 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 const CartScreen = ({match, location, history}) => {
     const productId = match.params.id
 
-    const qty = location.search ? Number(location.search.split('=')[1].split('?')[0]) : 1
-    const sz = location.search ? String(location.search.split('=')[2]) : 'small'
+    const qty = 1
+    const sz = location.search ? String(location.search.split('=')[1]) : 'small'
 
     const dispatch = useDispatch()
 
@@ -55,7 +55,7 @@ const CartScreen = ({match, location, history}) => {
                                         </Link>
                                     </Col>
                                     <Col sm={2} md={2}>
-                                        <Link to={`/product/${item.product}`}>
+                                        <Link to={`/product/${item.product}`} className="font-weight-bold">
                                             {item.name}
                                         </Link>
                                     </Col>
@@ -65,12 +65,13 @@ const CartScreen = ({match, location, history}) => {
                                     <Col sm={2} md={2}>
                                         {item.sz.toUpperCase()}
                                     </Col>
-                                    <Col sm={2} md={2}>
+                                    <Col sm={2} md={2} className="py-2">
                                     <Form.Control 
                                         as='select' 
                                         value={item.qty} 
                                         onChange={(e) => dispatch(addToCart(item.product,
                                         Number(e.target.value), item.sz))}
+                                        className="py-3"
                                         >
                                             {[...Array(item.sizeInStock).keys()].map(x => (
                                                 <option key={x + 1} value={x + 1}>
@@ -79,7 +80,7 @@ const CartScreen = ({match, location, history}) => {
                                             ))}
                                     </Form.Control>
                                     </Col>
-                                    <Col sm={1} md={1}>
+                                    <Col sm={1} md={1} className="py-2">
                                         <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.sz)}>
                                             <i class="fas fa-times"></i>
                                         </Button>
