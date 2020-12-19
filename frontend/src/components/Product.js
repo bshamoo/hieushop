@@ -18,7 +18,7 @@ const Product = ({ product }) => {
                     vegas collection winter 2020
                 </Card.Text>
                 <Card.Text as='h7'>
-                    {product.countInStock > 0 ? `$${product.price}` : 'Sold Out'}
+                    {product.totalInStock > 0 ? `$${product.price}` : 'Sold Out'}
                 </Card.Text>
             </Card.Body>
         </Card>

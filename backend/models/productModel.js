@@ -12,17 +12,17 @@ const productSchema = mongoose.Schema ({
     },
     image: {
         type: String,
-        required: true,
-    },
-    brand: {
-        type: String,
-        required: true
-    },
-    category: {
-        type: String,
         required: true
     },
     description: {
+        type: String,
+        required: true
+    },
+    collectionName: {
+        type: String,
+        required: true
+    },
+    color: {
         type: String,
         required: true
     },
@@ -31,16 +31,16 @@ const productSchema = mongoose.Schema ({
         required: true,
         default: 0
     },
-    countInStock: {
+    totalInStock: {
         type: Number,
         required: true,
         default: 0
     },
-    size: {
+    sizeInStock: {
         small: { name: String, type: Number, required: true, default: 0},
         medium: { name: String, type: Number, required: true, default: 0},
         large: { name: String, type: Number, required: true, default: 0}
-    },
+    }
 }, {
     timestamps: true
 })

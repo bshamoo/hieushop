@@ -4,11 +4,11 @@ const products = [
     image: '/images/airpods.jpg',
     description:
       'Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working',
-    collection: 'Apple',
-    category: 'Electronics',
+    collectionName: 'Apple',
+    color: 'White',
     price: 89.99,
-    countInStock: 0,
-    size: {
+    totalInStock: 0,
+    sizeInStock: {
       small: 0,
       medium: 0,
       large: 0
@@ -19,11 +19,11 @@ const products = [
     image: '/images/phone.jpg',
     description:
       'Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life',
-    collection: 'Apple',
-    category: 'Electronics',
+    collectionName: 'Apple',
+    color: 'White/Silver',
     price: 599.99,
-    countInStock: 7,
-    size: {
+    totalInStock: 7,
+    sizeInStock: {
       small: 3,
       medium: 0,
       large: 4
@@ -34,11 +34,11 @@ const products = [
     image: '/images/camera.jpg',
     description:
       'Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design',
-    collection: 'Cannon',
-    category: 'Electronics',
+    collectionName: 'Cannon',
+    color: 'Black',
     price: 929.99,
-    countInStock: 5,
-    size: { 
+    totalInStock: 4,
+    sizeInStock: { 
       small: 2,
       medium: 1,
       large: 2
@@ -49,11 +49,11 @@ const products = [
     image: '/images/playstation.jpg',
     description:
       'The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music',
-    collection: 'Sony',
-    category: 'Electronics',
+    collectionName: 'Sony',
+    color: 'White/Black',
     price: 399.99,
-    countInStock: 11,
-    size: { 
+    totalInStock: 11,
+    sizeInStock: { 
       small: 5,
       medium: 4,
       large: 2
@@ -64,11 +64,11 @@ const products = [
     image: '/images/mouse.jpg',
     description:
       'Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience',
-    collection: 'Logitech',
-    category: 'Electronics',
+    collectionName: 'Logitech',
+    color: 'White',
     price: 49.99,
-    countInStock: 7,
-    size: { 
+    totalInStock: 7,
+    sizeInStock: { 
       small: 1,
       medium: 3,
       large: 3
@@ -79,11 +79,11 @@ const products = [
     image: '/images/alexa.jpg',
     description:
       'Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space',
-    collection: 'Amazon',
-    category: 'Electronics',
+    collectionName: 'Amazon',
+    color: 'White/Gray',
     price: 29.99,
-    countInStock: 5,
-    size: { 
+    totalInStock: 5,
+    sizeInStock: { 
       small: 0,
       medium: 5,
       large: 0

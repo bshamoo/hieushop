@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions'
 
 const ProductScreen = ({ history, match }) => {
-    const [qty, setQty] = useState(1)
+    const [qty, setQty] = useState(0)
     const [sz, setSize] = useState('')
     const dispatch = useDispatch()
 
@@ -56,7 +56,7 @@ const ProductScreen = ({ history, match }) => {
                                     <strong>{product.name}</strong>
                                 </h3>
                                 <h6>
-                                    {product.brand}
+                                    {product.collectionName}
                                 </h6>
                             </ListGroupItem>
                             <ListGroupItem>
@@ -78,11 +78,15 @@ const ProductScreen = ({ history, match }) => {
                                         Status:
                                     </Col>
                                     <Col>
-                                        <strong>{product.countInStock === 0 ? 'Out of Stock' : 'In Stock'}</strong>
+                                        <strong>
+                                            {product.totalInStock === 0
+                                            ? 'Out of Stock' 
+                                            : 'In Stock'}
+                                        </strong>
                                     </Col>
                                 </Row>
                             </ListGroupItem>
-                            {product.countInStock > 0 && (
+                            {product.totalInStock > 0 && (
                                 <ListGroup.Item>
                                     <Row>
                                         <Col md={6} className="pb-2">
@@ -94,7 +98,7 @@ const ProductScreen = ({ history, match }) => {
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setSM}
-                                            disabled={product.size.small === 0}>
+                                            disabled={product.sizeInStock.small === 0}>
                                                 <strong>S</strong>
                                             </Button>
                                         </Col>
@@ -104,7 +108,7 @@ const ProductScreen = ({ history, match }) => {
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setMD}
-                                            disabled={product.size.medium === 0}>
+                                            disabled={product.sizeInStock.medium === 0}>
                                                 <strong>M</strong>
                                             </Button>
                                         </Col>
@@ -114,7 +118,7 @@ const ProductScreen = ({ history, match }) => {
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setLG}
-                                            disabled={product.size.large === 0}>
+                                            disabled={product.sizeInStock.large === 0}>
                                                 <strong>L</strong>
                                             </Button>
                                         </Col>
@@ -122,8 +126,12 @@ const ProductScreen = ({ history, match }) => {
                                 </ListGroup.Item>
                             )}
                             <ListGroupItem>
-                                <Button onClick={addToCartHandler} className="btn-block btn-cart shadow-none" type="button" disabled={product.countInStock === 0 || sz === ''}>
-                                    {product.countInStock === 0 ? 'Sold Out' : 'Add to Cart'}
+                                <Button onClick={addToCartHandler} className="btn-block btn-cart shadow-none" type="button" 
+                                    disabled={product.totalInStock === 0 || sz === ''}
+                                >
+                                    {product.totalInStock === 0
+                                    ? 'Sold Out' 
+                                    : 'Add to Cart'}
                                 </Button>
                             </ListGroupItem>
                         </ListGroup>

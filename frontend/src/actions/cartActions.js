@@ -3,22 +3,49 @@ import { CART_ADD_ITEM, CART_REMOVE_ITEM } from'../constants/cartConstants'
 
 export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
     const { data } = await axios.get(`/api/products/${id}`)
-
-    dispatch({
-        type: CART_ADD_ITEM,
-        payload: {
-            product: data._id,
-            name: data.name,
-            image: data.image,
-            price: data.price,
-            countInStock: data.countInStock,
-            small: data.size.small,
-            medium: data.size.medium,
-            large: data.size.large,
-            qty,
-            sz
-        }
-    })
+    
+    if(sz === 'small') {
+        dispatch({
+            type: CART_ADD_ITEM,
+            payload: {
+                product: data._id,
+                name: data.name,
+                image: data.image,
+                price: data.price,
+                sizeInStock: data.sizeInStock.small,
+                qty,
+                sz
+            }
+        })
+    }
+    else if(sz === 'medium') {
+        dispatch({
+            type: CART_ADD_ITEM,
+            payload: {
+                product: data._id,
+                name: data.name,
+                image: data.image,
+                price: data.price,
+                sizeInStock: data.sizeInStock.medium,
+                qty,
+                sz
+            }
+        })
+    }
+    if(sz === 'large') {
+        dispatch({
+            type: CART_ADD_ITEM,
+            payload: {
+                product: data._id,
+                name: data.name,
+                image: data.image,
+                price: data.price,
+                sizeInStock: data.sizeInStock.large,
+                qty,
+                sz
+            }
+        })
+    }
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
@@ -27,7 +54,7 @@ export const removeFromCart = (id, sz) => (dispatch, getState) => {
     dispatch({
         type: CART_REMOVE_ITEM,
         payload: id,
-        size: sz
+        sz
     })
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
