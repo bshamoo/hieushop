@@ -44,7 +44,7 @@ const Header = () => {
                             </Row>
                         </Nav>
                     </Navbar.Collapse>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-auto"/>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-auto order-0 order-xs-1 order-md-0 order-lg-0"/>
                     <Navbar.Brand className="m-auto order-0 order-md-0 order-lg-0">
                         <Row>
                             <Col>
@@ -89,7 +89,7 @@ const Header = () => {
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
-            </Navbar>
+            </Navbar> 
         </header>
     )
 }

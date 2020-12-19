@@ -7,15 +7,24 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
         
             const existItem = state.cartItems.find(x => x.product === item.product && x.sz === item.sz)
             
-            if(existItem) {
-               return {
-                   ...state,
-                   cartItems: state.cartItems.map(x => x.product === existItem.product && x.sz === existItem.sz ? item : x)
-               }
-            } else {
+            if(item.sizeInStock > 0) {
+
+                if(existItem) {
                 return {
                     ...state,
-                    cartItems: [...state.cartItems, item]
+                    cartItems: state.cartItems.map(x => x.product === existItem.product && x.sz === existItem.sz ? item : x)
+                }
+                } else {
+                    return {
+                        ...state,
+                        cartItems: [...state.cartItems, item]
+                    }
+                }
+            }
+            else {
+                return {
+                    ...state,
+                    cartItems: [...state.cartItems]
                 }
             }
         case CART_REMOVE_ITEM:
