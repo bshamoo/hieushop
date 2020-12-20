@@ -33,12 +33,9 @@ const CartScreen = ({match, location, history}) => {
     return (
         <>
             <Link className='btn btn-light my-3 shadow-none' to='/shop'>
-                
-                <h7>
-                    <i class="fas fa-chevron-left"></i> 
-                    &nbsp;&nbsp;
-                    {cartItems.length === 0 ? <strong>back to shop</strong> : <strong>continue shopping</strong>} 
-                </h7>
+                <i className="fas fa-chevron-left"></i> 
+                &nbsp;&nbsp;
+                {cartItems.length === 0 ? <strong>back to shop</strong> : <strong>continue shopping</strong>} 
             </Link>
             <Row>
                 <Col md={8}>
@@ -47,7 +44,7 @@ const CartScreen = ({match, location, history}) => {
                     ? <Message variant="light">Your cart is empty. <Link to='/shop'>Continue shopping.</Link></Message> 
                     : <ListGroup variant='flush'>
                         {cartItems.map(item => (
-                            <ListGroup.Item key={item.product}>
+                            <ListGroup.Item key={item.key}>
                                 <Row>
                                     <Col sm={3} md={3}>
                                         <Link to={`/product/${item.product}`}>
@@ -82,7 +79,7 @@ const CartScreen = ({match, location, history}) => {
                                     </Col>
                                     <Col sm={1} md={1} className="py-2">
                                         <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.sz)}>
-                                            <i class="fas fa-times"></i>
+                                            <i className="fas fa-times"></i>
                                         </Button>
                                     </Col>
                                 </Row>

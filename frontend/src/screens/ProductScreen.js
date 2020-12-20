@@ -34,11 +34,9 @@ const ProductScreen = ({ history, match }) => {
     return (
         <>
             <Link className='btn btn-light my-3 shadow-none' to='/shop'>
-                <h7>
-                    <i class="fas fa-chevron-left"></i>
-                    &nbsp;&nbsp;
-                    <strong>back to shop</strong>
-                </h7>
+                <i className="fas fa-chevron-left"></i>
+                &nbsp;&nbsp;
+                <strong>back to shop</strong>
             </Link>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : (
                 <Row>

@@ -5037,7 +5037,7 @@ a.badge-dark:focus {
 }
 .alert-danger {
   color: #770f12;
-  background: #fad2d3 linear-gradient(180deg, #fbd9da, #fad2d3) repeat-x;
+  background: #e41216 linear-gradient(180deg, #fbd9da, #fad2d3) repeat-x;
   border-color: #f8bfc1;
 }
 .alert-danger hr {

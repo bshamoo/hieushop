@@ -19,14 +19,14 @@ const Header = () => {
                                 <Col xs={12} md={6}>
                                     <LinkContainer to="/">
                                         <Nav.Link className="social">
-                                            <h2><i class="fab fa-instagram"></i></h2>
+                                            <h2><i className="fab fa-instagram"></i></h2>
                                         </Nav.Link>
                                     </LinkContainer>
                                 </Col>
                                 <Col xs={12} md={6}>
                                     <LinkContainer to="/">
                                         <Nav.Link className="social">
-                                            <h2><i class="fab fa-tiktok"></i></h2>
+                                            <h2><i className="fab fa-tiktok"></i></h2>
                                         </Nav.Link>
                                     </LinkContainer>
                                 </Col>
@@ -57,18 +57,20 @@ const Header = () => {
                             <Col>
                                 <LinkContainer to="/login">
                                     <Nav.Link className="user">
-                                        <h2><i class="far fa-user-circle"></i></h2>
+                                        <h2><i className="far fa-user-circle"></i></h2>
                                     </Nav.Link>
                                 </LinkContainer>
                             </Col>
                             <Col>
                                 <LinkContainer to="/cart">
                                     <Nav.Link className="user">
-                                        <h2>
-                                            <i class="fas fa-shopping-bag"></i>
-                                            <h6 className="flex">
-                                                {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                                            </h6>
+                                        <h2 className="py-0">
+                                            <i className="fas fa-shopping-bag"></i>
+                                            <span>
+                                                <h6>
+                                                    {cartItems.reduce((acc, item) => acc + item.qty, 0)}
+                                                </h6>
+                                            </span>
                                         </h2>
                                     </Nav.Link>
                                 </LinkContainer>

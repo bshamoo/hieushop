@@ -166,3 +166,38 @@ main {
   background-image: none;
   box-shadow: none;
 }
+.btn-login {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+}
+.btn-login:hover {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.8);
+}
+.btn-login.focus,
+.btn-login:focus {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  box-shadow: none;
+}
+.btn-login.disabled,
+.btn-login:disabled {
+  color: #fff;
+  background: rgba(0, 0, 0, 0.9);
+  background-image: none;
+}
+.btn-login:not(:disabled):not(.disabled).active,
+.btn-login:not(:disabled):not(.disabled):active,
+.show > .btn-login.dropdown-toggle {
+  color: #fff;
+  background: rgb(0, 0, 0, 0.9);
+  background-image: none;
+}
+.btn-login:not(:disabled):not(.disabled).active:focus,
+.btn-login:not(:disabled):not(.disabled):active:focus,
+.show > .btn-login.dropdown-toggle:focus {
+  box-shadow: none;
+}

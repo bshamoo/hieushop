@@ -6,7 +6,7 @@ const Product = ({ product }) => {
     return (
         <Card className='my-3 p-0 rounded'>
             <Link to={`/product/${product._id}`}>
-                <Card.Img src={product.image} variant='top' rounded/>
+                <Card.Img src={product.image} variant='top'/>
             </Link>
             <Card.Body className='py-1 px-1' >
                 <Link to={`/product/${product._id}`}>
@@ -17,7 +17,7 @@ const Product = ({ product }) => {
                 <Card.Text as='h6' className="font-weight-normal">
                     vegas collection winter 2020
                 </Card.Text>
-                <Card.Text as='h7'>
+                <Card.Text>
                     {product.totalInStock > 0 ? `$${product.price}` : 'Sold Out'}
                 </Card.Text>
             </Card.Body>

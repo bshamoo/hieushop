@@ -13,6 +13,7 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.small,
+                key: data._id + data.sizeInStock.small,
                 qty,
                 sz
             }
@@ -27,6 +28,7 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.medium,
+                key: data._id + data.sizeInStock.medium,
                 qty,
                 sz
             }
@@ -41,6 +43,7 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.large,
+                key: data._id + data.sizeInStock.large,
                 qty,
                 sz
             }
