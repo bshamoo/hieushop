@@ -1,13 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap';
 import { ReactComponent as Logo } from './logo.svg';
-import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, NavDropdown } from 'react-bootstrap';
+import { logout } from '../actions/userActions'
 
 const Header = () => {
+    const dispatch = useDispatch()
 
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
+
+    const logoutHandler = () => {
+        dispatch(logout())
+    }
 
     return (
         <header>
@@ -35,7 +44,7 @@ const Header = () => {
                         <Nav className="ml-auto">
                             <Row className="text-center">
                                 <Col>
-                                    <LinkContainer to="/shop">
+                                    <LinkContainer to="/">
                                         <Nav.Link >
                                             <h2 className="font-weight-bolder">shop</h2>
                                         </Nav.Link>
@@ -54,12 +63,23 @@ const Header = () => {
                     </Navbar.Brand>
                     <Nav className="ml-auto order-0 order-md-1 order-lg-1">
                         <Row className="text-center pt-3">
-                            <Col>
-                                <LinkContainer to="/login">
-                                    <Nav.Link className="user">
-                                        <h2><i className="far fa-user-circle"></i></h2>
-                                    </Nav.Link>
-                                </LinkContainer>
+                            <Col className="pt-2">
+                                {userInfo ? (
+                                    <NavDropdown title={userInfo.name.split(" ")[0]} id='username'>
+                                        <LinkContainer to='/profile'>
+                                            <NavDropdown.Item>
+                                                Profile
+                                            </NavDropdown.Item>
+                                        </LinkContainer>
+                                            <NavDropdown.Item onClick={logoutHandler}>
+                                                Logout
+                                            </NavDropdown.Item>
+                                    </NavDropdown>
+                                ) : <LinkContainer to="/login">
+                                        <Nav.Link className="user">
+                                            <h2><i className="far fa-user-circle"></i></h2>
+                                        </Nav.Link>
+                                    </LinkContainer> }
                             </Col>
                             <Col>
                                 <LinkContainer to="/cart">

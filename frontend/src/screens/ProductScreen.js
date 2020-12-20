@@ -33,7 +33,7 @@ const ProductScreen = ({ history, match }) => {
 
     return (
         <>
-            <Link className='btn btn-light my-3 shadow-none' to='/shop'>
+            <Link className='btn btn-light my-3 shadow-none' to='/'>
                 <i className="fas fa-chevron-left"></i>
                 &nbsp;&nbsp;
                 <strong>back to shop</strong>

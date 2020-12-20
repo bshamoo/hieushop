@@ -32,7 +32,7 @@ const CartScreen = ({match, location, history}) => {
     
     return (
         <>
-            <Link className='btn btn-light my-3 shadow-none' to='/shop'>
+            <Link className='btn btn-light my-3 shadow-none' to='/'>
                 <i className="fas fa-chevron-left"></i> 
                 &nbsp;&nbsp;
                 {cartItems.length === 0 ? <strong>back to shop</strong> : <strong>continue shopping</strong>} 
@@ -41,7 +41,7 @@ const CartScreen = ({match, location, history}) => {
                 <Col md={8}>
                     <h1>Shopping Cart</h1>
                     {cartItems.length === 0 
-                    ? <Message variant="light">Your cart is empty. <Link to='/shop'>Continue shopping.</Link></Message> 
+                    ? <Message variant="light">Your cart is empty. <Link to='/'>Continue shopping.</Link></Message> 
                     : <ListGroup variant='flush'>
                         {cartItems.map(item => (
                             <ListGroup.Item key={item.key}>
