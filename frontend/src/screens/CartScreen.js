@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
-import Message from '../components/Message'
+import { Row, Col, ListGroup, Image, Form, Button, Card, Alert } from 'react-bootstrap'
 import { addToCart, removeFromCart } from '../actions/cartActions'
 
 const CartScreen = ({match, location, history}) => {
@@ -41,7 +40,7 @@ const CartScreen = ({match, location, history}) => {
                 <Col md={8}>
                     <h1>Shopping Cart</h1>
                     {cartItems.length === 0 
-                    ? <Message variant="light">Your cart is empty. <Link to='/'>Continue shopping.</Link></Message> 
+                    ? <Alert variant="light">Your cart is empty. <Link to='/'>Continue shopping.</Link></Alert> 
                     : <ListGroup variant='flush'>
                         {cartItems.map(item => (
                             <ListGroup.Item key={item.key}>
