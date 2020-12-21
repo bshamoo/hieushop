@@ -81,16 +81,13 @@ const Header = () => {
                                         </Nav.Link>
                                     </LinkContainer> }
                             </Col>
-                            <Col>
+                            <Col className="pt-2">
                                 <LinkContainer to="/cart">
                                     <Nav.Link className="user">
-                                        <h2 className="py-0">
-                                            <i className="fas fa-shopping-bag"></i>
-                                            <span>
-                                                <h6>
-                                                    {cartItems.reduce((acc, item) => acc + item.qty, 0)}
-                                                </h6>
-                                            </span>
+                                        <h2>
+                                            <i className="fas fa-shopping-bag">
+                                                <h6 className="font-weight-bold">{cartItems.reduce((acc, item) => acc + item.qty, 0)}</h6>
+                                            </i>
                                         </h2>
                                     </Nav.Link>
                                 </LinkContainer>
