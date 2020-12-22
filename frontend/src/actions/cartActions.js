@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { CART_ADD_ITEM, CART_REMOVE_ITEM, CART_SAVE_SHIPPING_ADDRESS, CART_SAVE_PAYMENT_METHOD } from'../constants/cartConstants'
 
-export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
+export const addToCart = (id, qty, size) => async (dispatch, getState) => {
     const { data } = await axios.get(`/api/products/${id}`)
     
-    if(sz === 'small') {
+    if(size === 'small') {
         dispatch({
             type: CART_ADD_ITEM,
             payload: {
@@ -13,13 +13,12 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.small,
-                key: data._id + data.sizeInStock.small,
                 qty,
-                sz
+                size
             }
         })
     }
-    else if(sz === 'medium') {
+    else if(size === 'medium') {
         dispatch({
             type: CART_ADD_ITEM,
             payload: {
@@ -28,13 +27,12 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.medium,
-                key: data._id + data.sizeInStock.medium,
                 qty,
-                sz
+                size
             }
         })
     }
-    if(sz === 'large') {
+    if(size === 'large') {
         dispatch({
             type: CART_ADD_ITEM,
             payload: {
@@ -43,9 +41,8 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
                 image: data.image,
                 price: data.price,
                 sizeInStock: data.sizeInStock.large,
-                key: data._id + data.sizeInStock.large,
                 qty,
-                sz
+                size
             }
         })
     }
@@ -53,11 +50,11 @@ export const addToCart = (id, qty, sz) => async (dispatch, getState) => {
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 
-export const removeFromCart = (id, sz) => (dispatch, getState) => {
+export const removeFromCart = (id, size) => (dispatch, getState) => {
     dispatch({
         type: CART_REMOVE_ITEM,
         payload: id,
-        sz
+        size
     })
 
     localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))

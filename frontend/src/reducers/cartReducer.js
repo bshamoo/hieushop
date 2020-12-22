@@ -5,14 +5,14 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, acti
         case CART_ADD_ITEM:
             const item = action.payload
         
-            const existItem = state.cartItems.find(x => x.product === item.product && x.sz === item.sz)
+            const existItem = state.cartItems.find(x => x.product === item.product && x.size === item.size)
             
             if(item.sizeInStock > 0) {
 
                 if(existItem) {
                     return {
                         ...state,
-                        cartItems: state.cartItems.map(x => x.product === existItem.product && x.sz === existItem.sz ? item : x)
+                        cartItems: state.cartItems.map(x => x.product === existItem.product && x.size === existItem.size? item : x)
                     }
                 } else {
                     return {
@@ -30,7 +30,7 @@ export const cartReducer = (state = { cartItems: [], shippingAddress: {} }, acti
         case CART_REMOVE_ITEM:
             return {
                 ...state,
-                cartItems: state.cartItems.filter(x => x.product !== action.payload || x.sz !== action.sz)
+                cartItems: state.cartItems.filter(x => x.product !== action.payload || x.size !== action.size)
             }
         case CART_SAVE_SHIPPING_ADDRESS:
             return {

@@ -7,7 +7,7 @@ import Loader from '../components/Loader';
 import { listProductDetails } from '../actions/productActions'
 
 const ProductScreen = ({ history, match }) => {
-    const [sz, setSize] = useState('')
+    const [size, setSize] = useState('')
     const dispatch = useDispatch()
 
     const productDetails = useSelector(state => state.productDetails)
@@ -18,7 +18,7 @@ const ProductScreen = ({ history, match }) => {
     }, [dispatch, match])
 
     const addToCartHandler = () => {
-        history.push(`/cart/${match.params.id}?sz=${sz}`)
+        history.push(`/cart/${match.params.id}?sz=${size}`)
     }
 
     const setSM = () => {
@@ -88,7 +88,7 @@ const ProductScreen = ({ history, match }) => {
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-left">
                                             <Button type='button' 
-                                            className={sz === 'small' 
+                                            className={size=== 'small' 
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setSM}
@@ -98,7 +98,7 @@ const ProductScreen = ({ history, match }) => {
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-center">
                                             <Button type='button' 
-                                            className={sz === 'medium' 
+                                            className={size=== 'medium' 
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setMD}
@@ -108,7 +108,7 @@ const ProductScreen = ({ history, match }) => {
                                         </Col>
                                         <Col xs={3} sm={3} md={2} className="text-right">
                                             <Button type='button' 
-                                            className={ sz === 'large' 
+                                            className={ size=== 'large' 
                                                         ? 'btn-sizes px-4 px-md-3 px-lg-4 active' 
                                                         : 'btn-sizes px-4 px-md-3 px-lg-4'}
                                             onClick={setLG}
@@ -121,7 +121,7 @@ const ProductScreen = ({ history, match }) => {
                             )}
                             <ListGroupItem>
                                 <Button onClick={addToCartHandler} className="btn-block btn-cart shadow-none" type="button" 
-                                    disabled={product.totalInStock === 0 || sz === ''}
+                                    disabled={product.totalInStock === 0 || size=== ''}
                                 >
                                     {product.totalInStock === 0
                                     ? 'Sold Out' 

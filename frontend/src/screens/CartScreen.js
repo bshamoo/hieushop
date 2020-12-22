@@ -8,7 +8,7 @@ const CartScreen = ({match, location, history}) => {
     const productId = match.params.id
 
     const qty = 1
-    const sz = location.search ? String(location.search.split('=')[1]) : 'small'
+    const size = location.search ? String(location.search.split('=')[1]) : 'small'
 
     const dispatch = useDispatch()
 
@@ -17,12 +17,12 @@ const CartScreen = ({match, location, history}) => {
 
     useEffect(() => {
         if(productId) {
-            dispatch(addToCart(productId, qty, sz))
+            dispatch(addToCart(productId, qty, size))
         }
-    }, [dispatch, productId, qty, sz])
+    }, [dispatch, productId, qty, size])
 
-    const removeFromCartHandler = (id, sz) => {
-        dispatch(removeFromCart(id, sz))
+    const removeFromCartHandler = (id, size) => {
+        dispatch(removeFromCart(id, size))
     }
 
     const checkoutHandler = () => {
@@ -42,8 +42,8 @@ const CartScreen = ({match, location, history}) => {
                     {cartItems.length === 0 
                     ? <Alert variant="light">Your cart is empty. <Link to='/'>Continue shopping.</Link></Alert> 
                     : <ListGroup variant='flush'>
-                        {cartItems.map(item => (
-                            <ListGroup.Item key={item.key}>
+                        {cartItems.map((item, index) => (
+                            <ListGroup.Item key={index}>
                                 <Row>
                                     <Col sm={3} md={3}>
                                         <Link to={`/product/${item.product}`}>
@@ -59,14 +59,14 @@ const CartScreen = ({match, location, history}) => {
                                         ${item.price}
                                     </Col>
                                     <Col sm={2} md={2}>
-                                        {item.sz.toUpperCase()}
+                                        {item.size.toUpperCase()}
                                     </Col>
                                     <Col sm={2} md={2} className="py-2">
                                     <Form.Control 
                                         as='select' 
                                         value={item.qty} 
                                         onChange={(e) => dispatch(addToCart(item.product,
-                                        Number(e.target.value), item.sz))}
+                                        Number(e.target.value), item.size))}
                                         className="py-3"
                                         >
                                             {[...Array(item.sizeInStock).keys()].map(x => (
@@ -77,7 +77,7 @@ const CartScreen = ({match, location, history}) => {
                                     </Form.Control>
                                     </Col>
                                     <Col sm={1} md={1} className="py-2">
-                                        <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.sz)}>
+                                        <Button type='button' variant='light' onClick={() => removeFromCartHandler(item.product, item.size)}>
                                             <i className="fas fa-times"></i>
                                         </Button>
                                     </Col>
