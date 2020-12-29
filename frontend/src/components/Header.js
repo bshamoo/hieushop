@@ -65,7 +65,7 @@ const Header = () => {
                         <Row className="text-center pt-3">
                             <Col className="pt-2">
                                 {userInfo ? (
-                                    <NavDropdown title={userInfo.name.split(" ")[0]} id='username'>
+                                    <NavDropdown title={<h2><i className="fas fa-user-circle"></i></h2>} as={""} id='username'>
                                         <LinkContainer to='/profile'>
                                             <NavDropdown.Item>
                                                 Profile
