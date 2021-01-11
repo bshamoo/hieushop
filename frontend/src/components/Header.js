@@ -1,22 +1,15 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { LinkContainer } from 'react-router-bootstrap';
 import { ReactComponent as Logo } from './logo.svg';
-import { Navbar, Nav, Container, Row, Col, NavDropdown } from 'react-bootstrap';
-import { logout } from '../actions/userActions'
+import { Navbar, Nav, Container, Row, Col } from 'react-bootstrap';
 
 const Header = () => {
-    const dispatch = useDispatch()
-
     const cart = useSelector(state => state.cart)
     const { cartItems } = cart
 
     const userLogin = useSelector(state => state.userLogin)
     const { userInfo } = userLogin
-
-    const logoutHandler = () => {
-        dispatch(logout())
-    }
 
     return (
         <header>
@@ -65,16 +58,11 @@ const Header = () => {
                         <Row className="text-center pt-3">
                             <Col className="pt-2">
                                 {userInfo ? (
-                                    <NavDropdown title={<h2><i className="fas fa-user-circle"></i></h2>} as={""} id='username'>
-                                        <LinkContainer to='/profile'>
-                                            <NavDropdown.Item>
-                                                Profile
-                                            </NavDropdown.Item>
-                                        </LinkContainer>
-                                            <NavDropdown.Item onClick={logoutHandler}>
-                                                Logout
-                                            </NavDropdown.Item>
-                                    </NavDropdown>
+                                    <LinkContainer to='/profile'>
+                                        <Nav.Link className="user">
+                                            <h2><i className="fas fa-user-circle"></i></h2>
+                                        </Nav.Link>
+                                    </LinkContainer>
                                 ) : <LinkContainer to="/login">
                                         <Nav.Link className="user">
                                             <h2><i className="far fa-user-circle"></i></h2>

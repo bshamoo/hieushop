@@ -6,7 +6,7 @@ const Message = ({variant, children}) => {
 
     return (
         <>
-        {show && <Alert variant={variant} onClose={() => setShow(false)} dismissible> {children} </Alert>}
+        {show && <Alert variant={variant} onClose={() => setShow(false)}> {children} </Alert>}
         </>
     )
 }
