@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Table, Form, Button, Row, Col } from 'react-bootstrap'
+import { Table, Form, Button, Row, Col, Dropdown } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -59,7 +59,7 @@ const ProfileScreen = ({ history }) => {
 
     return (
         <Row>
-            <Col md={3}>
+            <Col md={3} className="pb-4">
                 <h2>
                     Profile
                 </h2>
@@ -120,6 +120,9 @@ const ProfileScreen = ({ history }) => {
                     <Button type="submit" className="btn-login">
                         Update
                     </Button>
+                    <Button variant="light"  className="float-right" onClick={logoutHandler}>
+                        Logout
+                    </Button>
                 </Form>
             </Col>
             <Col md={9}>
@@ -151,7 +154,7 @@ const ProfileScreen = ({ history }) => {
                                     )}</td>
                                     <td>
                                         <LinkContainer to={`/order/${order._id}`}>
-                                            <Button variant="light" className="btn-sm btn-block"><i class="fas fa-angle-double-right"></i></Button>
+                                            <Button variant="light" className="btn-sm btn-block"><i className="fas fa-angle-double-right"></i></Button>
                                         </LinkContainer>
                                     </td>
                                 </tr>
@@ -159,9 +162,20 @@ const ProfileScreen = ({ history }) => {
                         </tbody>
                     </Table>
                 )}
-                <Button variant="light" onClick={logoutHandler}>
-                    Logout
-                </Button>
+                {userInfo && userInfo.isAdmin && ( 
+                    <>
+                        <h4>Admin</h4>
+                        <LinkContainer to='/admin/userlist'>
+                            <Dropdown.Item>Users</Dropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to='/admin/productlist'>
+                            <Dropdown.Item>Products</Dropdown.Item>
+                        </LinkContainer>
+                        <LinkContainer to='/admin/orderlist'>
+                            <Dropdown.Item>Orders</Dropdown.Item>
+                        </LinkContainer>
+                    </>
+                )}
             </Col>
         </Row>
     )
