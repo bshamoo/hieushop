@@ -32,7 +32,7 @@ const CartScreen = ({match, location, history}) => {
     
     return (
         <>
-            <Meta title={`hieu | Cart`}/>
+            <Meta title='hieu | Cart'/>
             <Link className='btn btn-light my-3 shadow-none' to='/'>
                 <i className="fas fa-chevron-left"></i> 
                 &nbsp;&nbsp;

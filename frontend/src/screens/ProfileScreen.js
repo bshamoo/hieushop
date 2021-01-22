@@ -76,7 +76,7 @@ const ProfileScreen = ({ location, history }) => {
                     ) : error ? (
                     <Message variant='danger'>{error}</Message>
                     ) : (
-                    <Form onSubmit={submitHandler} className="pb-5">
+                    <Form onSubmit={submitHandler}>
                         <Form.Group controlId='name'>
                             <Form.Label>
                                 Name
@@ -135,10 +135,12 @@ const ProfileScreen = ({ location, history }) => {
                     </Form>
                     )}
                 </Col>
-                <Col md={9}>
-                    <h2>My Orders</h2>
+                <Col md={9} className="pb-2">
+                    {userInfo && !userInfo.isAdmin && (
+                        <h2>My Orders</h2>
+                    )}
                     {loadingOrders ? <Loader /> : errorOrders ? <Message variant='danger'>
-                    {errorOrders}</Message> : (
+                    {errorOrders}</Message> : userInfo && !userInfo.isAdmin && (
                         <Table striped bordered hover responsive className="table-sm">
                             <thead>
                                 <tr>
@@ -174,7 +176,7 @@ const ProfileScreen = ({ location, history }) => {
                     )}
                     {userInfo && userInfo.isAdmin && ( 
                         <>
-                            <h4>Admin</h4>
+                            <h2>Admin</h2>
                             <LinkContainer to='/admin/userlist'>
                                 <Dropdown.Item>Users</Dropdown.Item>
                             </LinkContainer>
