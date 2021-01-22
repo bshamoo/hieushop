@@ -4,6 +4,7 @@ import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Meta from '../components/Meta'
 import { listProducts } from '../actions/productActions'
 
 const HomeScreen = () => {
@@ -18,6 +19,7 @@ const HomeScreen = () => {
 
     return (
         <>
+            <Meta title='hieu | Shop' description='hieu, a las vegas clothing brand.' keywords='streetwear, fashion, clothing brand, clothes, grailed'/>
             <Row>
                 <Col className="text-center">
                     <h3 className="collection-name font-weight-bold">vegas collection <span className="collection-date">winter 2021</span></h3>

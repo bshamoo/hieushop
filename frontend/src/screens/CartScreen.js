@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Meta from '../components/Meta'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card, Alert } from 'react-bootstrap'
 import { addToCart, removeFromCart } from '../actions/cartActions'
@@ -31,6 +32,7 @@ const CartScreen = ({match, location, history}) => {
     
     return (
         <>
+            <Meta title={`hieu | Cart`}/>
             <Link className='btn btn-light my-3 shadow-none' to='/'>
                 <i className="fas fa-chevron-left"></i> 
                 &nbsp;&nbsp;

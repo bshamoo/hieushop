@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 import { Table, Button, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -48,6 +49,11 @@ const ProductListScreen = ({ history, match }) => {
 
 return (
         <>
+            <Link className='btn btn-light my-3 shadow-none' to='/profile'>
+                <i className="fas fa-chevron-left"></i>
+                &nbsp;&nbsp;
+                <strong>back to profile</strong>
+            </Link>
             <Row className='align-items-center'>
                 <Col>
                     <h1>Products</h1>
@@ -73,8 +79,9 @@ return (
                         <tr>
                             <th>ID</th>
                             <th>NAME</th>
-                            <th>COLLECTION</th>
                             <th>PRICE</th>
+                            <th>COLLECTION</th>
+                            <th>COLOR</th>
                             <th>IN STOCK</th>
                             <th></th>
                         </tr>
@@ -84,8 +91,9 @@ return (
                         <tr key={product._id}>
                             <td>{product._id}</td>
                             <td>{product.name}</td>
-                            <td>{product.collectionName}</td>
                             <td>${product.price}</td>
+                            <td>{product.collectionName}</td>
+                            <td>{product.color}</td>
                             <td>Total: {product.totalInStock},
                                 SM: {product.sizeInStock.small},
                                 MD: {product.sizeInStock.medium},

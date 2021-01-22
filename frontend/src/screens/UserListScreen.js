@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
+import { Link } from 'react-router-dom'
 import { Table, Button } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/Message'
@@ -35,6 +36,11 @@ const UserListScreen = ({ history }) => {
 
     return (
         <>
+            <Link className='btn btn-light my-3 shadow-none' to='/profile'>
+                <i className="fas fa-chevron-left"></i>
+                &nbsp;&nbsp;
+                <strong>back to profile</strong>
+            </Link>
             <h1>Users</h1>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message>
             : (
