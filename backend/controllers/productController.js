@@ -49,6 +49,7 @@ const createProduct = asyncHandler(async (req, res) => {
     user: req.user._id,
     image: '/images/sample.jpg',
     collectionName: 'Sample brand',
+    color: 'Black',
     totalInStock: 0,
     sizeInStock: [0, 0, 0],
     description: 'Sample description',
@@ -70,7 +71,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     collectionName,
     totalInStock,
     color,
-    sizeInStock
+    sizeInStock,
   } = req.body
 
   const product = await Product.findById(req.params.id)
@@ -81,11 +82,11 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.description = description
     product.image = image
     product.collectionName = collectionName
-    product.category = category
     product.totalInStock = totalInStock
     product.color = color
-    product.sizeInStock = sizeInStock
-
+    product.sizeInStock.small = sizeInStock.small
+    product.sizeInStock.medium = sizeInStock.medium
+    product.sizeInStock.large = sizeInStock.large
 
     const updatedProduct = await product.save()
     res.json(updatedProduct)

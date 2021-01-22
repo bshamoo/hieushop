@@ -76,10 +76,10 @@ const OrderScreen = ({ match }) => {
                             <ListGroup.Item>
                                 <h2>Shipping</h2>
                                 <p>
-                                    <strong>Name: </strong> {order.name.name}
+                                    <strong>Name: </strong> {order.user.name}
                                 </p>
                                 <p>
-                                    <strong>Email: </strong> <a href={`mailto:${order.name.email}`}>{order.name.email}</a>
+                                    <strong>Email: </strong> <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
                                 </p>
                                 <p>
                                     <strong>Address: </strong>
