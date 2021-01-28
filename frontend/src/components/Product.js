@@ -15,7 +15,7 @@ const Product = ({ product }) => {
                     </Card.Title>
                 </Link>
                 <Card.Text as='h6' className="font-weight-normal">
-                    vegas collection winter 2020
+                    {product.collectionName}
                 </Card.Text>
                 <Card.Text>
                     {product.totalInStock > 0 ? `$${product.price}` : 'Sold Out'}

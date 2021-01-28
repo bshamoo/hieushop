@@ -160,7 +160,7 @@ const ProductEditScreen = ({ match, history }) => {
             <Form.Group controlId='price'>
               <Form.Label>Price</Form.Label>
               <Form.Control
-                type='number'
+                type='text'
                 placeholder='Enter price'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}

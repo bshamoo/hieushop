@@ -22,7 +22,7 @@ const HomeScreen = () => {
             <Meta title='hieu | Shop' description='hieu, a las vegas clothing brand.' keywords='streetwear, fashion, clothing brand, clothes, grailed'/>
             <Row>
                 <Col className="text-center">
-                    <h3 className="collection-name font-weight-bold">vegas collection <span className="collection-date">winter 2021</span></h3>
+                    <h3 className="collection-name font-weight-bold">collection 001 <span className="collection-date"> spring 2021</span></h3>
                 </Col>
             </Row>
             {loading ? <Loader /> : error ? <Message variant='danger'>{error}</Message> : 

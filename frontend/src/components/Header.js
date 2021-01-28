@@ -19,18 +19,18 @@ const Header = () => {
                         <Nav className="mr-auto">
                             <Row className="text-center">
                                 <Col xs={12} md={6}>
-                                    <LinkContainer to="/">
-                                        <Nav.Link className="social">
-                                            <h2><i className="fab fa-instagram"></i></h2>
-                                        </Nav.Link>
-                                    </LinkContainer>
+                                    <Nav.Item>
+                                            <a className="social" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/hieulasvegas/">
+                                                <h3><i className="fab fa-instagram"></i></h3>
+                                            </a>
+                                    </Nav.Item>
                                 </Col>
                                 <Col xs={12} md={6}>
-                                    <LinkContainer to="/">
-                                        <Nav.Link className="social">
-                                            <h2><i className="fab fa-tiktok"></i></h2>
-                                        </Nav.Link>
-                                    </LinkContainer>
+                                    <Nav.Item className="pl-md-1 pr-md-4">
+                                            <a className="social" target="_blank" rel="noopener noreferrer" href="https://www.tiktok.com/@hieulasvegas?lang=en">
+                                                <h3><i className="fab fa-tiktok"></i></h3>
+                                            </a>
+                                    </Nav.Item>
                                 </Col>
                             </Row>
                         </Nav>
@@ -39,7 +39,7 @@ const Header = () => {
                                 <Col>
                                     <LinkContainer to="/">
                                         <Nav.Link >
-                                            <h2 className="font-weight-bolder">shop</h2>
+                                            <h3 className="font-weight-bolder">shop</h3>
                                         </Nav.Link>
                                     </LinkContainer>
                                 </Col>
@@ -50,7 +50,7 @@ const Header = () => {
                     <Navbar.Brand className="m-auto order-0 order-md-0 order-lg-0">
                         <Row>
                             <Col>
-                                <Logo className="logo" height={100} width={190}/>  
+                                <Logo className="logo" height={90} width={190}/>  
                             </Col>
                         </Row> 
                     </Navbar.Brand>
@@ -60,23 +60,23 @@ const Header = () => {
                                 {userInfo ? (
                                     <LinkContainer to='/profile'>
                                         <Nav.Link className="user">
-                                            <h2><i className="fas fa-user-circle"></i></h2>
+                                            <h3><i className="fas fa-user-circle"></i></h3>
                                         </Nav.Link>
                                     </LinkContainer>
                                 ) : <LinkContainer to="/login">
                                         <Nav.Link className="user">
-                                            <h2><i className="far fa-user-circle"></i></h2>
+                                            <h3><i className="far fa-user-circle"></i></h3>
                                         </Nav.Link>
                                     </LinkContainer> }
                             </Col>
                             <Col className="pt-2">
                                 <LinkContainer to="/cart">
                                     <Nav.Link className="user">
-                                        <h2>
+                                        <h3>
                                             <i className="fas fa-shopping-bag">
                                                 <h6 className="font-weight-bold">{cartItems.reduce((acc, item) => acc + item.qty, 0)}</h6>
                                             </i>
-                                        </h2>
+                                        </h3>
                                     </Nav.Link>
                                 </LinkContainer>
                             </Col>
@@ -88,7 +88,7 @@ const Header = () => {
                                 <Col>
                                     <LinkContainer to="/book">
                                         <Nav.Link>
-                                            <h2 className="font-weight-bolder">book</h2>
+                                            <h3 className="font-weight-bolder">book</h3>
                                         </Nav.Link>
                                     </LinkContainer>
                                 </Col>
