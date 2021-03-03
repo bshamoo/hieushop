@@ -211,10 +211,13 @@ a.social:hover {
   color: var(--blue);
 }
 div.dice {
+  background-image: url(./screens/dice.gif);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
   opacity: 1;
   position: fixed;
   width: 100%;
@@ -223,14 +226,6 @@ div.dice {
   left: 0px;
   z-index: 0;
   overflow: hidden;
-}
-.background-video {
-  object-fit: cover;
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 .centered {
   position: absolute;
