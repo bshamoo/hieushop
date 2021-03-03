@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Clock from "react-live-clock";
 import moment from "moment";
 import Meta from "../components/Meta";
+import dice from "./dice.mp4";
 
 const LandingScreen = () => {
   return (
@@ -13,6 +14,9 @@ const LandingScreen = () => {
         description="hieu, a las vegas clothing brand."
         keywords="streetwear, fashion, clothing brand, clothes, grailed, vegas clothing, las vegas brand"
       />
+      <video className="background-video" autoPlay loop muted>
+        <source src={dice} type="video/mp4" />
+      </video>
       <div className="crt">
         <div className="dice">
           <Row className="justify-content-center text-center mt-1">
