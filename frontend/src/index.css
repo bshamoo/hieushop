@@ -211,7 +211,6 @@ a.social:hover {
   color: var(--blue);
 }
 div.dice {
-  background-image: url(./screens/dice.gif);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -226,6 +225,16 @@ div.dice {
   left: 0px;
   z-index: 0;
   overflow: hidden;
+}
+@media (min-width: 280px) {
+  div.dice {
+    background-image: url(./backgrounds/dicem.gif);
+  }
+}
+@media (min-width: 992px) {
+  div.dice {
+    background-image: url(./backgrounds/dice.gif);
+  }
 }
 .centered {
   position: absolute;
